@@ -1,28 +1,29 @@
 
+
     local Library = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-    local Window = Library:MakeWindow({Name = "2e44.exe - Booga Hybrid", HidePremium = true, SaveConfig = true, IntroEnabled = false, ConfigFolder = "OrionTest"})
+    local Window = Library:MakeWindow({Name = "Booga Hybrid", HidePremium = true, SaveConfig = true, IntroEnabled = false, ConfigFolder = "OrionTest"})
     
     local KillAura = Window:MakeTab({
         Name = "Kill Aura's",
-        Icon = "rbxassetid://4482245998",
+        Icon = "rbxassetid://4483345998",
         PremiumOnly = false
     })
     
     local Farming = Window:MakeTab({
         Name = "Levels",
-        Icon = "rbxassetid://4482245998",
+        Icon = "rbxassetid://4483345998",
         PremiumOnly = false
     })
     
     local World = Window:MakeTab({
         Name = "World-Visuals",
-        Icon = "rbxassetid://4482245998",
+        Icon = "rbxassetid://4483345998",
         PremiumOnly = false
     })
     
     local PlayerEsp = Window:MakeTab({
         Name = "Player-Visuals",
-        Icon = "rbxassetid://4482245998",
+        Icon = "rbxassetid://4483345998",
         PremiumOnly = false
     })
     
@@ -32,7 +33,7 @@
     _G.SmallTropicalTreeKill = false
     _G.WealthyGodKill = false
     _G.GreedyGoddessKill = false
-    _G.StrangeMeteorKill = false
+    
     
     -- auto kills
     function SkiddedAura()    
@@ -68,9 +69,9 @@
         local autoatacktarget = GetClosest()
         local args = {
         [1] = {
-            ["location"] = nil --[[Vector2]],
+            ["location"] = nil --[[Vector3]],
             ["weaponName"] = "The Meatmaker",
-            ["id"] = 2,
+            ["id"] = 3,
             ["hit"] = game:GetService("Players")[autoatacktarget]
         }
     }
@@ -84,9 +85,9 @@
             wait(0.0000001)
             local args = {
                 [1] = {
-                    ["location"] = nil --[[Vector2]],
+                    ["location"] = nil --[[Vector3]],
                     ["weaponName"] = "The Meatmaker",
-                    ["id"] = 2,
+                    ["id"] = 3,
                     ["hit"] = workspace.Sharks["Lurky Boi"]
                 }
             }
@@ -99,9 +100,9 @@
             wait(0.0000001)
             local args = {
                 [1] = {
-                    ["location"] = nil --[[Vector2]],
+                    ["location"] = nil --[[Vector3]],
                     ["weaponName"] = "The Meatmaker",
-                    ["id"] = 2,
+                    ["id"] = 3,
                     ["hit"] = workspace.Resources["Ancient Tree"]
                 }
             }
@@ -115,9 +116,9 @@
             wait(0.0000001)
             local args = {
                 [1] = {
-                    ["location"] = nil --[[Vector2]],
+                    ["location"] = nil --[[Vector3]],
                     ["weaponName"] = "The Meatmaker",
-                    ["id"] = 2,
+                    ["id"] = 3,
                     ["hit"] = workspace.Resources["Tropical Tree"]
                 }
             }
@@ -130,9 +131,9 @@
             wait(0.0000001)
             local args = {
                 [1] = {
-                    ["location"] = nil --[[Vector2]],
+                    ["location"] = nil --[[Vector3]],
                     ["weaponName"] = "The Meatmaker",
-                    ["id"] = 2,
+                    ["id"] = 3,
                     ["hit"] = workspace.Resources["Small Tropical Tree"]
                 }
             }
@@ -145,9 +146,9 @@
             wait(0.0000001)
             local args = {
                 [1] = {
-                    ["location"] = nil --[[Vector2]],
+                    ["location"] = nil --[[Vector3]],
                     ["weaponName"] = "The Meatmaker",
-                    ["id"] = 2,
+                    ["id"] = 3,
                     ["hit"] = workspace.Resources["Weathly God"]
                 }
             }
@@ -160,9 +161,9 @@
             wait(0.0000001)
             local args = {
                 [1] = {
-                    ["location"] = nil --[[Vector2]],
+                    ["location"] = nil --[[Vector3]],
                     ["weaponName"] = "The Meatmaker",
-                    ["id"] = 2,
+                    ["id"] = 3,
                     ["hit"] = workspace.Resources["Greedy Goddess"]
                 }
             }
@@ -170,21 +171,6 @@
         end
     end
     
-    function StrangeMeteorKill()
-        while _G.StrangeMeteorKill == true do
-            wait(0.0000001)
-            local args = {
-                [1] = {
-                    ["location"] = nil --[[Vector2]],
-                    ["weaponName"] = "The Meatmaker",
-                    ["id"] = 2,
-                    ["hit"] = workspace.Resources["Strange Meteor"]
-                }
-            }
-            game:GetService("ReplicatedStorage").Events.Bow.Impact:FireServer(unpack(args))
-        end
-    end
-
     -- world buttons
     
     
@@ -251,22 +237,15 @@
         end    
     })
     
-    Farming:AddToggle({
-        Name = "Auto Strange Meteor Kill",
-        Default = false,
-        Callback = function(Value)
-            _G.StrangeMeteorKill = Value
-            StrangeMeteorKill()
-        end    
-    })
+    
     -- night mode toggles
     
     World:AddButton({
         Name = "NightMode",
         Callback = function()
-                  game.Lighting.TimeOfDay = 2
+                  game.Lighting.TimeOfDay = 3
                 game.Lighting.Brightness = 0.20
-                game.Lighting.OutdoorAmbient = Color2.fromRGB(150,150,150)
+                game.Lighting.OutdoorAmbient = Color3.fromRGB(150,150,150)
           end    
     })
     
@@ -285,15 +264,15 @@
     gui.AlwaysOnTop = true;
     gui.LightInfluence = 0;
     gui.Size = UDim2.new(1.75, 0, 1.75, 0);
-    esp.BackgroundColor2 = Color2.fromRGB(255, 255, 255);
+    esp.BackgroundColor3 = Color3.fromRGB(255, 255, 255);
     esp.Text = ""
     esp.Size = UDim2.new(0.0001, 0.00001, 0.0001, 0.00001);
     esp.BorderSizePixel = 4;
-    esp.BorderColor2 = Color2.new(esp_settings.colour)
+    esp.BorderColor3 = Color3.new(esp_settings.colour)
     esp.BorderSizePixel = 0
     esp.Font = "GothamSemibold"
     esp.TextSize = esp_settings.textsize
-    esp.TextColor2 = Color2.fromRGB(esp_settings.colour) -- text colour
+    esp.TextColor3 = Color3.fromRGB(esp_settings.colour) -- text colour
     
     game:GetService("RunService").RenderStepped:Connect(function() ---- loops faster than a while loop :)
     for i,v in pairs (game:GetService("Players"):GetPlayers()) do
